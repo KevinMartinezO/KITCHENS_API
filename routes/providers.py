@@ -27,17 +27,6 @@ async def create_new_provider(provider_data: Provider):
     # Devolver el resultado de la creación del provider
     return result
 
-# Definir ruta para actualizar un provider existente
-@router.put("/{id}", tags=["Providers"], status_code=status.HTTP_200_OK)
-# Definir función para actualizar un provider existente
-async def update_existing_provider(provider_data: Provider, id: int):
-    # Asignar el ID del provider a los datos del provider
-    provider_data.id = id
-    # Llamar a la función del controlador para actualizar el provider
-    result = await update_provider(provider_data)
-    # Devolver el resultado de la actualización del provider
-    return result
-
 # Definir ruta para obtener un provider por ID
 @router.get("/{id}", tags=["Providers"], status_code=status.HTTP_200_OK)
 # Definir función para obtener un provider por ID
@@ -54,6 +43,17 @@ async def get_all_providers_route():
     # Llamar a la función del controlador para obtener todos los providers
     result = await get_all_providers()
     # Devolver la lista de providers obtenida
+    return result
+
+# Definir ruta para actualizar un provider existente
+@router.put("/{id}", tags=["Providers"], status_code=status.HTTP_200_OK)
+# Definir función para actualizar un provider existente
+async def update_existing_provider(provider_data: Provider, id: int):
+    # Asignar el ID del provider a los datos del provider
+    provider_data.id = id
+    # Llamar a la función del controlador para actualizar el provider
+    result = await update_provider(provider_data)
+    # Devolver el resultado de la actualización del provider
     return result
 
 # Definir ruta para eliminar un provider por ID

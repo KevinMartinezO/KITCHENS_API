@@ -27,17 +27,6 @@ async def create_new_ingredient(ingredient_data: Ingredient):
     # Devolver el resultado de la creación del ingredient
     return result
 
-# Definir ruta para actualizar un ingredient existente
-@router.put("/{id}", tags=["Ingredients"], status_code=status.HTTP_200_OK)
-# Definir función para actualizar un ingredient existente
-async def update_existing_ingredient(ingredient_data: Ingredient, id: int):
-    # Asignar el ID del ingredient a los datos del ingredient
-    ingredient_data.id = id
-    # Llamar a la función del controlador para actualizar el ingredient
-    result = await update_ingredient(ingredient_data)
-    # Devolver el resultado de la actualización del ingredient
-    return result
-
 # Definir ruta para obtener un ingredient por ID
 @router.get("/{id}", tags=["Ingredients"], status_code=status.HTTP_200_OK)
 # Definir función para obtener un ingredient por ID
@@ -54,6 +43,17 @@ async def get_all_ingredients_route():
     # Llamar a la función del controlador para obtener todos los ingredients
     result = await get_all_ingredients()
     # Devolver la lista de ingredients obtenida
+    return result
+
+# Definir ruta para actualizar un ingredient existente
+@router.put("/{id}", tags=["Ingredients"], status_code=status.HTTP_200_OK)
+# Definir función para actualizar un ingredient existente
+async def update_existing_ingredient(ingredient_data: Ingredient, id: int):
+    # Asignar el ID del ingredient a los datos del ingredient
+    ingredient_data.id = id
+    # Llamar a la función del controlador para actualizar el ingredient
+    result = await update_ingredient(ingredient_data)
+    # Devolver el resultado de la actualización del ingredient
     return result
 
 # Definir ruta para eliminar un ingredient por ID

@@ -27,17 +27,6 @@ async def create_new_restaurant(restaurant_data: Restaurant):
     # Devolver el resultado de la creación del restaurante
     return result
 
-# Definir ruta para actualizar un restaurante existente
-@router.put("/{id}", tags=["Restaurants"], status_code=status.HTTP_200_OK)
-# Definir función para actualizar un restaurante existente
-async def update_existing_restaurant(restaurant_data: Restaurant, id: int):
-    # Asignar el ID del restaurante a los datos del restaurante
-    restaurant_data.id = id
-    # Llamar a la función del controlador para actualizar el restaurante
-    result = await update_restaurant(restaurant_data)
-    # Devolver el resultado de la actualización del restaurante
-    return result
-
 # Definir ruta para obtener un restaurante por ID
 @router.get("/{id}", tags=["Restaurants"], status_code=status.HTTP_200_OK)
 # Definir función para obtener un restaurante por ID
@@ -54,6 +43,17 @@ async def get_all_restaurants_route():
     # Llamar a la función del controlador para obtener todos los restaurantes
     result = await get_all_restaurants()
     # Devolver la lista de restaurantes obtenida 
+    return result
+
+# Definir ruta para actualizar un restaurante existente
+@router.put("/{id}", tags=["Restaurants"], status_code=status.HTTP_200_OK)
+# Definir función para actualizar un restaurante existente
+async def update_existing_restaurant(restaurant_data: Restaurant, id: int):
+    # Asignar el ID del restaurante a los datos del restaurante
+    restaurant_data.id = id
+    # Llamar a la función del controlador para actualizar el restaurante
+    result = await update_restaurant(restaurant_data)
+    # Devolver el resultado de la actualización del restaurante
     return result
 
 # Definir ruta para eliminar un restaurante por ID

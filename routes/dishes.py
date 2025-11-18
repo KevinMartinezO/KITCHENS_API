@@ -54,7 +54,7 @@ async def get_all_dishes_route():
 # Definir ruta para actualizar un dish existente
 @router.put("/{id}", tags=["Dishes"], status_code=status.HTTP_200_OK)
 # Definir función para actualizar un dish existente
-async def update_existing_dish(dish_data: Dish, id: int):
+async def update_existing_dish(id: int, dish_data: Dish):
     # Asignar el ID del dish a los datos del dish
     dish_data.id = id
     # Llamar a la función del controlador para actualizar el dish
@@ -118,7 +118,6 @@ async def update_ingredient_route(id: int, ingredient_id: int, ingredient_data: 
 # Definir función para eliminar un ingrediente de un plato
 async def remove_ingredient_route(id: int, ingredient_id: int):
     # Llamar a la función del controlador para eliminar el ingrediente del plato
-    status: str = await remove_ingredient(id, ingredient_id)
+    result = await remove_ingredient(id, ingredient_id)
     # Devolver el estado de la eliminación
-    return status
-
+    return result

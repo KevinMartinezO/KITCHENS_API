@@ -24,7 +24,7 @@ def read_root():
     # Devuelve un mensaje de bienvenida y la versión de la API
     return {
         "Hello": "KITCHENS_API",
-        "version": "0.0.1"
+        "version": "0.2.0"
     }
 
 # Ejecutar la aplicación si este archivo es el punto de entrada principal
