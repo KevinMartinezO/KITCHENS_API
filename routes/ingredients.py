@@ -57,7 +57,7 @@ async def update_existing_ingredient(ingredient_data: Ingredient, id: int):
     return result
 
 # Definir ruta para eliminar un ingredient por ID
-@router.delete("/{id}", tags=["Ingredients"], status_code=status.HTTP_200_OK)
+@router.delete("/{id}", tags=["Ingredients"], status_code=status.HTTP_204_NO_CONTENT)
 # Definir función para eliminar un ingredient por ID
 async def delete_ingredient_route(id: int):
     # Llamar a la función del controlador para eliminar el ingredient

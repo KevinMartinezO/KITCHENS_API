@@ -63,7 +63,7 @@ async def update_existing_dish(id: int, dish_data: Dish):
     return result
 
 # Definir ruta para eliminar un dish por ID
-@router.delete("/{id}", tags=["Dishes"], status_code=status.HTTP_200_OK)
+@router.delete("/{id}", tags=["Dishes"], status_code=status.HTTP_204_NO_CONTENT)
 # Definir función para eliminar un dish por ID
 async def delete_dish_route(id: int):
     # Llamar a la función del controlador para eliminar el dish

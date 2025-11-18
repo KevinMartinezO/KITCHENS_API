@@ -57,10 +57,8 @@ async def update_existing_restaurant(restaurant_data: Restaurant, id: int):
     return result
 
 # Definir ruta para eliminar un restaurante por ID
-@router.delete("/{id}", tags=["Restaurants"], status_code=status.HTTP_200_OK)
+@router.delete("/{id}", tags=["Restaurants"], status_code=status.HTTP_204_NO_CONTENT)
 # Definir función para eliminar un restaurante por ID
 async def delete_restaurant_route(id: int):
     # Llamar a la función del controlador para eliminar el restaurante
-    result = await delete_restaurant(id)
-    # Devolver el resultado de la eliminación 
-    return result
+    await delete_restaurant(id)

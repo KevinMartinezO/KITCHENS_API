@@ -57,7 +57,7 @@ async def update_existing_provider(provider_data: Provider, id: int):
     return result
 
 # Definir ruta para eliminar un provider por ID
-@router.delete("/{id}", tags=["Providers"], status_code=status.HTTP_200_OK)
+@router.delete("/{id}", tags=["Providers"], status_code=status.HTTP_204_NO_CONTENT)
 # Definir función para eliminar un provider por ID
 async def delete_provider_route(id: int):
     # Llamar a la función del controlador para eliminar el provider
