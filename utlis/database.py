@@ -1,5 +1,7 @@
 # Módulo para la gestión de la conexión a la base de datos y ejecución de consultas SQL.
+# Incluye funciones para conectarse a la base de datos, ejecutar consultas y devolver resultados en formato JSON.
 # Importar librerías necesarias
+# Librerías para manejo de entorno, base de datos, logging, JSON y asincronía
 from dotenv import load_dotenv
 import os
 import pyodbc
